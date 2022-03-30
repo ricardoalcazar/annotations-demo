@@ -12,7 +12,7 @@ public class TennisCoach implements Coach{
     private String dwo;
 
     public TennisCoach(){
-        dwo = "Hit all those hot asses!";
+        dwo = "Hit the tennis ball 20 times.";
     }
 
     /**

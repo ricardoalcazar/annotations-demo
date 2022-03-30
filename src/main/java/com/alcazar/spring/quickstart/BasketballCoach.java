@@ -7,7 +7,7 @@ public class BasketballCoach implements Coach{
 
     @Override
     public String getDailyWorkout(){
-        return "Lick that phat blonde pussy!";
+        return "Perform 20 lay-ups.";
 
     }
 

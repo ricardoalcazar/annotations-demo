@@ -2,11 +2,16 @@ package com.alcazar.spring.quickstart;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 @Component()
+@Scope("singleton")
 public class TennisCoach extends AbstractCoach{
 
     Logger logger = LoggerFactory.getLogger(TennisCoach.class);
@@ -17,12 +22,6 @@ public class TennisCoach extends AbstractCoach{
     public TennisCoach(){
         dwo = "Hit the tennis ball 20 times.";
         logger.debug("Default constructor");
-    }
-
-    //@Autowired
-    public TennisCoach(FortuneService fs){
-        dwo = "Hit the tennis ball 20 times.";
-        logger.debug("Constructor(FortuneService)");
     }
 
     @Override
@@ -43,5 +42,22 @@ public class TennisCoach extends AbstractCoach{
         logger.debug("setFortuneService()");
 
     }
+
+    /**
+     *
+     */
+    @PostConstruct
+    public void onInit(){
+        logger.debug("Execute onInit()");
+    }
+
+    /**
+     *
+     */
+    @PreDestroy
+    public void onDestroy(){
+        logger.debug("Execute onDestroy()");
+    }
+
 
 }
